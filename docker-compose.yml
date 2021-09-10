@@ -1,0 +1,8 @@
+version: '3'
+services:
+ ruby:
+   image: ruby:2.7.4-alpine
+   command: ash -c ' ruby brand_scraper.rb > brand_name.csv'
+   working_dir: /brand_scraper
+   volumes:
+     - ./:/brand_scraper
