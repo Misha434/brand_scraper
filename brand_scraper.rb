@@ -3,7 +3,10 @@ require 'net/http'
 require 'json'
 require 'csv'
 
-uri = URI.parse('https://www.wikitable2json.com/api/List_of_mobile_phone_brands_by_country?table=0')
+page_title = "List_of_mobile_phone_brands_by_country"
+table_order = 0
+
+uri = URI.parse("https://www.wikitable2json.com/api/#{page_title}?table=#{table_order}")
 
 json = Net::HTTP.get(uri)
 result = JSON.parse(json)
