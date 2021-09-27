@@ -8,15 +8,15 @@ uri = URI.parse('https://www.wikitable2json.com/api/List_of_mobile_phone_brands_
 json = Net::HTTP.get(uri)
 result = JSON.parse(json)
 
-json_chank_order = 0
+json_chunk_order = 0
 
-brand_amount = result[json_chank_order]["data"].size
+brand_amount = result[json_chunk_order]["data"].size
 order_brand_name_column = 2
 
 brands = []
 
 brand_amount.times do |array_order|
-  brands << result[json_chank_order]["data"][array_order][order_brand_name_column]
+  brands << result[json_chunk_order]["data"][array_order][order_brand_name_column]
 end
 
 brands.map!{|x| x== "Brand" ? "name" : x }
